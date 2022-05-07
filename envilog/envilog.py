@@ -12,7 +12,7 @@ def get_datestamp():
 
 def get_timestamp():
         now = datetime.now()
-        return now.strftime("[%H:%M:%S]")
+        return now.strftime("%H:%M:%S")
 
 def now_after_midnight(date):
     return datetime.now().date() > date
@@ -36,6 +36,7 @@ def open_log_files(parent, quants):
         path = os.path.join(parent, datestamp, name)
         dp("Creating file: " + path)
         files.append(open(path, "w"))
+        files[-1].write("# hour:minute:second:value\n")
 
     return files, arr
 
@@ -82,7 +83,7 @@ while True:
         
         dp("Reading: " + name + "; Command: " + cmd)
         value = eval("hat." + cmd + "()")
-        files[i].write(get_timestamp() + " " + str(value) + "\n")
+        files[i].write(get_timestamp() + ":" + str(value) + "\n")
         files[i].flush()
 
     sleep(args.period)
