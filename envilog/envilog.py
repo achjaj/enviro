@@ -34,7 +34,7 @@ def open_log_files(parent, quants):
             raise Exception("Unsupported quantity \"" + name + "\"!")
 
         path = os.path.join(parent, datestamp, name)
-        header = "# hour:minute:second:value\n") if not os.path.exists(path) else ""
+        header = "# hour:minute:second:value\n" if not os.path.exists(path) else ""
 
         dp("Creating file: " + path)
         files.append(open(path, "a"))
