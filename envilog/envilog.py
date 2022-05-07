@@ -52,8 +52,8 @@ def dp(msg):
 
 
 parser = argparse.ArgumentParser(description="Log values from Enviro+ HAT.", epilog="Allowed quantities: " + str(QUANTS))
-parser.add_argument("-p", "--period", dest="period", nargs=1, type=int, default=1, help="Time in seconds between measurements, default: 1.")
-parser.add_argument("-q", "--quantities", dest="quant", nargs=1, type=str, default="all", help="Comma separated list of quantities that shold be logged, default: all.")
+parser.add_argument("-p", "--period", dest="period", type=int, default=1, help="Time in seconds between measurements, default: 1.")
+parser.add_argument("-q", "--quantities", dest="quant", type=str, default="all", help="Comma separated list of quantities that shold be logged, default: all.")
 parser.add_argument("path", metavar="path", type=str, help="Path to directory where logs are saved.")
 parser.add_argument("-v", "--verbose", dest="verb", action="store_true", default=False, help="Print debug informations.")
 
